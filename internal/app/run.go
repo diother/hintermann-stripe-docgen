@@ -16,7 +16,7 @@ func Run(year, month int) error {
 
 	monthlyRoot, payoutRoot, err := fs.PrepareBundle(year, month)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to prepare bundle: %w", err)
 	}
 
 	monthlyPdf, err := pdf.GenerateMonthly(year, month, payouts)
